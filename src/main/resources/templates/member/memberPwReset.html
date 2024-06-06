@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 찾기</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/memberPwReset.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+    <script th:src="@{/src/member.js}"></script>
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <h2>비밀번호 찾기</h2>
+                <section class="section">
+                    <p id="member_img"><img th:src="@{/images/form/member_search.png}" alt="회원아이디찾기"></p>
+                    <p>새로운 비밀번호를 등록해 주세요.</p>
+                </section>
+                
+                <form th:action="@{/member/memberPwReset}" method="post" autocomplete="off">
+                	<input type="hidden" th:name="userId" th:value="${uId}">
+	                <table>
+	                    <tr>
+	                        <td>
+	                            <input type="password" th:name="newPw" id="newPw" placeholder="영문대소문자, 숫자, 특수문자(!@#$%^&*) 모두 포함 6~20자" required>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td>
+	                            <input type="password" name="newPwCheck" id="newPwCheck" placeholder="새 비밀번호 확인" required>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td>
+	                            <input type="submit" value="확인" id="reset_btn">
+	                        </td>
+	                    </tr>
+	                </table>
+                </form>
+            </div>
+        
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+        
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

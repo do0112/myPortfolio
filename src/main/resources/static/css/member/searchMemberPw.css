@@ -1,0 +1,335 @@
+:root{
+    /*colors*/
+    --color-white: #fff;
+    --color-orange: #f65d25;
+    --color-black: #050a13;
+    --color-background: #fcf6f4;
+    --color-font: #414141;
+    --color-btn: #f8d6cf;
+
+    /* width */
+    --max-width: 1600px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body,input{
+    font-family: 'NanumSquareNeo-Variable';
+    font-size: 18px;
+    color: var(--color-font);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--color-font);
+}
+img{
+    vertical-align: middle;
+    width: 100%;
+}
+
+/*common*/
+.inner{
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.section{
+    margin-top: 90px;
+    padding: 50px;
+    text-align: center;
+}
+h2{
+    text-align: left;
+    background-color: #f1efef;
+    height: 200px;
+    line-height: 200px;
+    padding-left: 30px;
+    margin-top: 0;
+    font-size: 1.9rem;
+}
+.description{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 0.5rem 0;
+}
+#wrap{
+    width: 100%;
+}
+
+/*header*/
+header{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    position: sticky;
+    top: 0; 
+    z-index: 10;   
+    border-bottom: 1.6px solid var(--color-orange);
+}
+.header--border{
+    border-bottom: 1.6px solid var(--color-orange);
+}
+
+/* top menu */
+header .inner{
+    position: relative;
+}
+header #top_menu{
+    display: flex;
+    justify-content: right;
+    padding: 20px 45px;
+}
+header #top_menu p{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 330px;
+	height: 30px;
+	border: 1px solid var(--color-orange);
+	border-radius: 25px;
+	margin-right: 15px;
+}
+header #top_menu p:hover{
+    border: 2px solid var(--color-orange);
+}
+header #top_menu p .material-symbols-outlined{
+	color: var(--color-orange);
+}
+header #top_menu input{
+	width: 290px;
+	border: none;
+	outline: none;
+}
+header #top_menu input::placeholder{
+	color: #999;
+}
+header #top_menu button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+header ul{
+    display: flex;
+}
+#top_menu ul li{
+    padding: 7px;
+}
+#top_menu ul li a:hover{
+    font-weight: bold;
+}
+h1{
+    scale: 1.2;
+    position: absolute;
+    left: 10px;
+    top: 40%;
+}
+
+/* main menu */
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20%;
+}
+nav ul{
+    vertical-align: middle; 
+}
+nav ul li{
+    margin-right: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px 3px 25px 3px;
+}
+nav ul .all span{
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 37px;
+}
+/*sub menu*/
+.all #sub_menu{
+    background-color: var(--color-white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    padding: 10px 0 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: none;
+    z-index: 9;
+}
+#sub_menu dl{
+    float: left;
+}
+#sub_menu dl:first-of-type{
+    margin-left: 30%;
+}
+#sub_menu .sub{
+    margin: 0 50px;
+}
+#sub_menu .sub dt{
+    font-size: 20px;
+    color: var(--color-font);
+    font-weight: normal;
+    margin: 15px 0;
+}
+#sub_menu .sub dd{
+    margin-top: 15px;
+}
+#sub_menu .sub dd a{
+    font-weight: bold;
+    padding-bottom: 2px;
+    font-size: 18px;
+}
+#sub_menu .sub dd a:hover{
+    color: var(--color-orange);
+    border-bottom: 1.5px solid var(--color-orange);
+}
+nav #menu_icon{
+    margin-left: 10%;
+}
+nav #menu_icon a{
+    display: inline-block;
+    margin-right: 15px;
+}
+nav #menu_icon a span{
+    font-size: 30px;
+}
+
+
+/* find member id*/
+#member_img{
+    margin-bottom: 20px;
+    text-align: center;
+}
+#member_img img{
+    width: 160px;
+    height: 160px;
+}
+table{
+	width: 550px;
+	margin: 20px auto;
+	border-spacing: 0;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+table td{
+	padding: 10px 0;
+}
+table input[type="text"]{
+	width: 560px;
+	height: 40px;
+    border: none;
+    border-bottom: 1.4px solid var(--color-font);
+    outline: none;
+	padding: 0 10px;
+}
+#choice_box{
+    width: 560px;
+    margin: 0 auto;
+    margin-bottom: 150px;
+}
+#choice_box button{
+    display: inline-block;
+    width: 270px;
+    height: 50px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#choice_box input[type="submit"]{
+    display: inline-block;
+    width: 270px;
+    height: 50px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+}
+#choice_box #id_box{
+    margin: 0 5px;
+}
+#choice_box #next{
+    background-color: #999;
+}
+#choice_box #next:hover{
+    background-color: #ccc;
+}
+
+
+
+/*arrow up*/
+.aside{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+    
+}
+.aside #quick{
+    display: block;
+    font-size: 2.3rem;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+
+
+/*footer*/
+footer .inner{
+	width: 100%;
+	padding: 40px 0;
+	background-color: #f9f9f9;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-around;
+}
+footer h3 img{
+	width: 150px;
+}
+footer #info{
+	display: flex;
+}
+#info li{
+	margin-right: 30px;
+}
+footer a{
+	color: #333;
+	border-bottom: 1px solid #333;
+	padding-bottom: 1px;
+}
+footer a:hover{
+	border-bottom: none;
+}
+footer p{
+	margin-top: 30px;
+	line-height: 20px;
+}
+footer #icon{
+	display: flex;
+}
+#icon li{
+	padding: 10px;
+}
+#icon li a{
+	font-size: 24px;
+	border-bottom: none;
+}

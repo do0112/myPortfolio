@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/searchMemberIdOk.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+
+</head>
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <h2>아이디 찾기</h2>
+                <section class="section">
+                    <p id="member_img"><img th:src="@{/images/form/member_search.png}" alt="회원아이디찾기"></p>
+                    <p><span th:text="${username}"></span> 회원님의 아이디는 <span th:text="${userid}"></span> 입니다</p>
+                </section>
+
+                <div id="choice_box">
+                    <a th:href="@{/member/searchMemberPw}" class="box">비밀번호 찾기</a>
+                    <a th:href="@{/member/login}" class="box">로그인하기</a>
+                </div>
+            </div>
+        
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

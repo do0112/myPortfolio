@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 라면</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/main.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<input type="hidden" th:name="loginMember" th:value="${loginMember}">
+
+<div id="banner">
+            <ul id="banner_img">
+            	<li><a th:href="@{/item/itemDetail/17}"><img src="images/banner/banner_06.jpg" alt="배너1"></a></li>
+                <li><a th:href="@{/item/itemDetail/51}"><img src="images/banner/banner_02.jpg" alt="배너1"></a></li>
+                <li><a th:href="@{/item/itemDetail/49}"><img src="images/banner/banner_04.jpg" alt="배너1"></a></li>
+                <li><a th:href="@{/item/itemDetail/10}"><img src="images/banner/banner_05.jpg" alt="배너1"></a></li>
+                <li><a th:href="@{/item/itemDetail/15}"><img src="images/banner/banner_01.jpg" alt="배너1"></a></li>
+                <li><a th:href="@{/item/itemDetail/23}"><img src="images/banner/banner_03.jpg" alt="배너1"></a></li>
+            </ul>
+            
+            <p id="icon_left"><span class="material-symbols-outlined">chevron_left</span></p>
+            <p id="icon_right"><span class="material-symbols-outlined">chevron_right</span></p>
+        
+            
+        </div>
+
+        <!--main-->
+        <main class="main">
+            <div class="inner">
+
+                <!-- menu-box -->
+                <section id="menu_box" class="section">
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/all}"><img src="images/menu_box/all.png" alt=""></a></li>
+                        <li>전체 라면</li>
+                    </ul>
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/korea}"><img src="images/menu_box/korea.png" alt=""></a></li>
+                        <li>국내</li>
+                    </ul>
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/japan}"><img src="images/menu_box/japan.png" alt=""></a></li>
+                        <li>일본</li>
+                    </ul>
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/vietnam}"><img src="images/menu_box/vietnam.png" alt=""></a></li>
+                        <li>베트남</li>
+                    </ul>
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/china}"><img src="images/menu_box/china.png" alt=""></a></li>
+                        <li>중국</li>
+                    </ul>
+                    <ul>
+                        <li class="circle"><a th:href="@{/item/itemList/thailand}"><img src="images/menu_box/thailand.png" alt=""></a></li>
+                        <li>태국</li>
+                    </ul>
+                </section>
+
+                <!-- 오늘의 라면 TOP -->
+                <section id="top" class="section">
+                    <h2>오늘의 라면</h2>
+                    <span>TOP</span>
+                    <p class="description">
+                        지금 이 순간<br>가장 인기 있는 상품들을 만나보세요!
+                    </p>
+
+                    <div id="top_item_list">
+                        <div id="top_items">
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/12}"><img src="images/top/top_01.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/12}">앵그리 너구리(121g*5)</a>
+                                </dd>
+                                <dd>
+                                    <del>4,660원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">15%</i>&nbsp;&nbsp;&nbsp;3,961원
+                                </dd>
+                            </dl>
+                            
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/5}"><img src="images/top/top_02.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/5}">팔도비빔면딸기 봄에디션(135g*5)</a>
+                                </dd>
+                                <dd>
+                                    <del>5,500원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">15%</i>&nbsp;&nbsp;&nbsp;4,675원
+                                </dd>
+                            </dl>
+                            
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/2}"><img src="images/top/top_03.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/2}">로제 불닭볶음면(140*4)</a>
+                                </dd>
+                                <dd>
+                                    <del>4,800원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">10%</i>&nbsp;&nbsp;&nbsp;4,320원
+                                </dd>
+                            </dl>
+                            
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/4}"><img src="images/top/top_04.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/4}">신볶게티큰사발면 107g</a>
+                                </dd>
+                                <dd>
+                                    <del>1,650원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">6%</i>&nbsp;&nbsp;&nbsp;1,551원
+                                </dd>
+                            </dl>
+                           
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/7}"><img src="images/top/top_05.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/7}">닛신호빵맨 컵라멘 우동 32g</a>
+                                </dd>
+                                <dd>
+                                    <del>1,800원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">10%</i>&nbsp;&nbsp;&nbsp;1,620원
+                                </dd>
+                            </dl>
+                        
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/6}"><img src="images/top/top_06.jpg" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/6}">비폰 컵 쌀국수 소고기 120g</a>
+                                </dd>
+                                <dd>
+                                    <del>1,990원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">10%</i>&nbsp;&nbsp;&nbsp;1,791원
+                                </dd>
+                            </dl>
+                            
+                            <dl class="top_item">
+                                <dt>
+                                    <a th:href="@{/item/itemDetail/11}"><img src="images/top/top_07.png" alt=""></a>
+                                </dt>
+                                <dd>
+                                    <a th:href="@{/item/itemDetail/11}">맵탱흑후추소고기(110g*4)</a>
+                                </dd>
+                                <dd>
+                                    <del>3,430원</del>
+                                </dd>
+                                <dd>
+                                    <i class="font_sale">20%</i>&nbsp;&nbsp;&nbsp;2,744원
+                                </dd>
+                            </dl>
+                            
+                        </div>
+                    
+                        <div id="scrollbar">
+                            <div id="scrollbar_drag"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--이달의 라면 추천-->
+                <section id="new_items" class="section">
+                    <h2>이달의 라면 추천</h2>
+                    <section id="nb">
+                        <p id="new">신제품</p>
+                        <p id="best">베스트</p>
+                    </section>
+
+                    <div class="nb_item">
+                        <ul>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/9}"><img src="images/new/new_01.png" alt="신제품1"></a></div>
+                                <p><a th:href="@{/item/itemDetail/9}">간짬뽕 엑스 큰컵 115g</a></p>
+                                <p>1,550원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/10}"><img src="images/new/new_02.jpg" alt="신제품2"></a></div>
+                                <p><a th:href="@{/item/itemDetail/10}">먹태깡 큰사발면 청양마요맛(118g*1)</a></p>
+                                <p>1,760원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/11}"><img src="images/new/new_03.png" alt="신제품3"></a></div>
+                                <p><a th:href="@{/item/itemDetail/11}">맵탱흑후추소고기(110g*4)</a></p>
+                                <p>2,744원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/1}"><img src="images/new/new_04.png" alt="신제품4"></a></div>
+                                <p><a th:href="@{/item/itemDetail/1}">팔도 어라어라어묵라면(115g*4)</a></p>
+                                <p>4,320원</p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/13}"><img src="images/new/new_05.png" alt="신제품5"></a></div>
+                                <p><a th:href="@{/item/itemDetail/13}">팔도 마라왕비빔면(135g*4) 2팩</a></p>
+                                <p>13,000원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/3}"><img src="images/new/new_06.png" alt="신제품6"></a></div>
+                                <p><a th:href="@{/item/itemDetail/3}">순하군안성탕면(125g*5)</a></p>
+                                <p>3,960원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/15}"><img src="images/new/new_07.png" alt="신제품7"></a></div>
+                                <p><a th:href="@{/item/itemDetail/15}">배홍동쫄쫄면(챌린지에디션)(129g*4)</a></p>
+                                <p>4,620원</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/14}"><img src="images/new/new_08.png" alt="추천2"></a></div>
+                                <p><a th:href="@{/item/itemDetail/14}">캉스푸 쌍무소고기(110g*5)</a></p>
+                                <p>6,350원</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nb_item">
+                        <ul>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/12}"><img src="images/new/best_01.png" alt="베스트1"></a></div>
+                                <p><a th:href="@{/item/itemDetail/12}">앵그리 너구리(121g*5)</a></p>
+                                <p>3,961원</p>
+                                <p>120건 🧡5.0</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/2}"><img src="images/new/best_02.png" alt="베스트2"></a></div>
+                                <p><a th:href="@{/item/itemDetail/2}">로제 불닭볶음면(140*4)</a></p>
+                                <p>4,320원</p>
+                                <p>115건 🧡5.0</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/10}"><img src="images/new/best_03.png" alt="베스트3"></a></div>
+                                <p><a th:href="@{/item/itemDetail/10}">먹태깡 큰사발면 청양마요맛(118g*1)</a></p>
+                                <p>1,760원</p>
+                                <p>90건 🧡4.9</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/4}"><img src="images/new/best_04.png" alt="베스트4"></a></div>
+                                <p><a th:href="@{/item/itemDetail/4}">신볶게티큰사발면 107g</a></p>
+                                <p>1,551원</p>
+                                <p>85건 🧡4.9</p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/5}"><img src="images/new/best_05.png" alt="베스트5"></a></div>
+                                <p><a th:href="@{/item/itemDetail/5}">팔도비빔면딸기 봄에디션(135g*5)</a></p>
+                                <p>4,675원</p>
+                                <p>70건 🧡4.8</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/6}"><img src="images/new/best_06.jpg" alt="베스트6"></a></div>
+                                <p><a th:href="@{/item/itemDetail/6}">비폰 컵 쌀국수 소고기 120g</a></p>
+                                <p>1,791원</p>
+                                <p>55건 🧡4.8</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/7}"><img src="images/new/best_07.png" alt="베스트7"></a></div>
+                                <p><a th:href="@{/item/itemDetail/7}">닛신호빵맨 컵라멘 우동 32g</a></p>
+                                <p>1,620원</p>
+                                <p>50건 🧡4.8</p>
+                            </li>
+                            <li>
+                                <div><a th:href="@{/item/itemDetail/8}"><img src="images/new/best_08.png" alt="베스트8"></a></div>
+                                <p><a th:href="@{/item/itemDetail/8}">캉스푸 향라우육라면(104*5)</a></p>
+                                <p>5,450원</p>
+                                <p>45건 🧡4.8</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!--브랜드관-->
+                <section id="brand" class="section">
+                    <h2>브랜드관</h2>
+                    
+                    <ul class="categories">
+                        <li class="category" id="nongshim">
+                            <img src="images/brand/nongshim.png" alt="">
+                            <span class="category_count">7</span>
+                        </li>
+                        <li class="category" id="paldo">
+                            <img src="images/brand/paldo.png" alt="">
+                            <span class="category_count">7</span>
+                        </li>
+                        <li class="category" id="samyang">
+                            <img src="images/brand/samyang.png" alt="">
+                            <span class="category_count">7</span>
+                        </li>
+                    </ul>
+
+                    <div id="items">
+                        <p class="left_btn"><span class="material-symbols-outlined">chevron_left</span></p>
+                        <p class="right_btn"><span class="material-symbols-outlined">chevron_right</span></p>
+
+                        <div class="item_brand">
+                            <ul>
+                                <li><img src="images/brand/items/nongshim_01.jpg" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_02.jpg" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_03.jpg" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_04.jpg" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_05.png" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_06.png" alt=""></li>
+                                <li><img src="images/brand/items/nongshim_07.png" alt=""></li>
+                            </ul>
+                            <span class="more"><a th:href="@{/item/itemList/농심}">바로가기 ></a></span>
+                        </div>
+                        <div class="item_brand">
+                            <ul>
+                                <li><img src="images/brand/items/paldo_01.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_02.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_03.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_04.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_05.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_06.png" alt=""></li>
+                                <li><img src="images/brand/items/paldo_07.png" alt=""></li>
+                            </ul>
+                            <span class="more"><a th:href="@{/item/itemList/팔도}">바로가기 ></a></span>
+                        </div>
+                        <div class="item_brand">
+                            <ul>
+                                <li><img src="images/brand/items/samyang_01.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_02.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_03.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_04.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_05.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_06.png" alt=""></li>
+                                <li><img src="images/brand/items/samyang_07.jpg" alt=""></li>
+                            </ul>
+                            <span class="more"><a th:href="@{/item/itemList/삼양}">바로가기 ></a></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 해외 브랜드 -->
+                <section id="other" class="section">
+                    <h2>해외 제품</h2>
+
+                    <div id="country">
+                        <p>#Japan</p>
+                        <p>#China</p>
+                        <p>#Vietnam</p>
+                        <p>#Thailand</p>
+                    </div>
+
+                    <div class="other_brand">
+                        <div id="other_japan">
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/36}"><img src="images/brand/other/japan_02.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/36}">마루짱 세이멘 컵라면 곱배기 7종</a></li>
+                                <li>야키우동/소스야키소바/시오야키소바/완탄쇼유/콘미소/고쿠돈고츠/돈고츠쇼유</li>
+                                <li>총 7가지 맛이 있는 마루짱 세이면의 일본 컵라면</li>
+                                <li>3,200원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/35}"><img src="images/brand/other/japan_01.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/35}">닛신 컵누들 컵라면</a></li>
+                                <li>오리지널/카레/씨푸드/똠양꿍/칠리토마토/치즈카레</li>
+                                <li>총 6가지 맛이 있는 건더기가 푸짐한 일본대표 컵라면</li>
+                                <li>3,800원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/42}"><img src="images/brand/other/japan_03.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/42}">마루타이 지역별 인스턴트 2인분 라면</a></li>
+                                <li>하카타/구마모토/카고시마/나가사키/미야자키/사가/쿠루메/홋카이도</li>
+                                <li>지역별 9가지 라면</li>
+                                <li>4,200원</li>
+                            </ul>
+                        </div>
+                        <span class="more"><a th:href="@{/item/itemList/japan}">더 보기 ></a></span>
+                    </div>
+                    <div class="other_brand">
+                        <div id="other_china">
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/34}"><img src="images/brand/other/china_01.png" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/34}">캉스푸 우육면 BIG 5개입</a></li>
+                                <li>향라/백김치/홍소</li>
+                                <li>중국 소비량 1위인 캉스푸 브랜드 3가지 맛</li>
+                                <li>5,050원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/41}"><img src="images/brand/other/china_03.png" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/41}">탕달인 컵라면</a></li>
+                                <li>일식돈골/매운돈골/나송탕/해물/한국식불고기</li>
+                                <li>탕달인 브랜드 5가지 맛</li>
+                                <li>2,190원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/45}"><img src="images/brand/other/china_02.png" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/45}">바이샹 108g~127g</a></li>
+                                <li>양고기맛/매운소고기맛/란주/토마토맛/사골맛/닭고기맛</li>
+                                <li>매콤한 맛부터 새콤한 맛까지 다양하게 즐기는 바이샹 브랜드 6가지 맛</li>
+                                <li>2,560원</li>
+                            </ul>
+                        </div>
+                        <span class="more"><a th:href="@{/item/itemList/china}">더 보기 ></a></span>
+                    </div>
+                    <div class="other_brand">
+                        <div id="other_vietnam">
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/39}"><img src="images/brand/other/vietnam_01.png" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/39}">비폰 쌀국수(60g*5)</a></li>
+                                <li>소고기맛/닭고기맛</li>
+                                <li>베트남 현지의 맛</li>
+                                <li>3,790원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/44}"><img src="images/brand/other/vietnam_02.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/44}">하오하오 미톰새우 77g</a></li>
+                                <li>미톰새우/새우양파/사떼</li>
+                                <li>3가지 맛 베트남 봉지라면</li>
+                                <li>2,300원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/43}"><img src="images/brand/other/vietnam_03.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/43}">오라이시 포보컵 70g</a></li>
+                                <li>베트남 쌀국수 컵라면</li>
+                                <li>전통 베트남 쌀국수</li>
+                                <li>1,490원</li>
+                            </ul>
+                        </div>
+                        <span class="more"><a th:href="@{/item/itemList/vietnam}">더 보기 ></a></span>
+                    </div>
+                    <div class="other_brand">
+                        <div id="other_thailand">
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/37}"><img src="images/brand/other/thailand_01.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/37}">마마 크리미돔냥 55g</a></li>
+                                <li>크리미돔냥/톰삽/무남톡</li>
+                                <li>마마 3가지 맛</li>
+                                <li>2,560원</li>
+                            </ul>
+                            <ul>
+                                <li><a th:href="@{/item/itemDetail/38}"><img src="images/brand/other/thailand_02.jpg" alt=""></a></li>
+                                <li><a th:href="@{/item/itemDetail/38}">와이와이 팟차베이비클램 60g</a></li>
+                                <li>와이와이</li>
+                                <li>매콤한 태국 라면</li>
+                                <li>2,060원</li>
+                            </ul>
+                        </div>
+                        <span class="more"><a th:href="@{/item/itemList/thailand}">더 보기 ></a></span>
+                    </div>
+                </section>
+            </div>
+
+                <!--베스트 포토 후기-->
+                <div class="inner">
+                    <section id="review" class="section">
+                        <h2>베스트 포토 후기</h2>
+                        <p class="description">좋은 건 모두가 알아야죠!<br>따끈따끈한 리얼 베스트 리뷰를 공개합니다!</p>
+                        
+                        <div>
+                            <ul>
+                                <li><a href=""><img src="images/review/review_01.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_02.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_03.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_04.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_05.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_06.png" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_09.png" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_08.png" alt=""></a></li>
+                            </ul>
+                            <ul>
+                                <li><a href=""><img src="images/review/review_01.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_02.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_03.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_04.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_05.jpg" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_06.png" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_09.png" alt=""></a></li>
+                                <li><a href=""><img src="images/review/review_08.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                        
+                        <span class="more"><a href="">더 보기 ></a></span>
+                    </section>
+                </div>
+                
+
+                <!--오늘은 내가 요리사-->
+                <div class="inner">
+                    <section id="chef" class="section">
+                        <h2>오늘은 내가 요리사</h2>
+                        <p class="description">라면으로도 이렇게 다양한 요리를 할 수 있어요!<br>새로운 아이디어를 많이 많이 올려주세요!</p>
+                        
+                        <div>
+                            <div class="box">
+                                <a href="">
+                                    <img src="images/chef/chef_01.jpg" alt="">
+                                    <p>일본 방송에 소개된 신라면 레시피입니다. <br>물을 줄이고 우유로 대체해 <span class="text">카르보나라 파스타처럼 크리미하게</span> 즐길 수 있습니다.<br>
+                                    <br><span class="ingredients">🛒 재료</span><br>
+                                    <span class="text">신라면</span> 1개, 분말스프 8g, 우유 380ml, 베이커 50g, 파마산 치즈 8g, 달걀 노른자 1개, 파슬리 가루 약간</p>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="">
+                                    <img src="images/chef/chef_02.jpg" alt="">
+                                    <p>짜파게티 만능소스를 활용해 간단하게 만드는 볶음밥 레시피입니다. 방법은 간단하지만 맛은 절대 간단하지 않으니 도전해 보시기를 추천드립니다.<br>
+                                    <br><span class="ingredients">🛒 재료</span><br>
+                                    밥 200g, 달걀 1개, 파 20g, <span class="text">짜파게티</span> 만능소스 35g, 식용유 5g<br>
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="">
+                                    <img src="images/chef/chef_03.jpg" alt="">
+                                    <p>미고렝은 단짠의 맛이 특징인 인도네시아식 볶음면입니다. 신라면 볶음면의 면식감이 <span class="text">동남아의 볶음면 식감과 유사</span>하고 
+                                        업그레이드된 맵단짠의 맛.<br>
+                                        <br><span class="ingredients">🛒 재료</span><br>
+                                        <span class="text">신라면 볶음면</span> 1개, 양파 20g, 숙주 25g, 청경채 25g, 통마늘 13g, 굴소스 5g, 돼지고기 채 50g, 달걀 1개, 식용유 15g
+                                        </p>
+                                </a>
+                                
+                            </div>
+                        </div>
+
+                        <span class="more"><a href="">더 보기 ></a></span>
+                    </section>
+                </div>
+
+                <!-- 라면을 맞혀라 -->
+                <div class="inner">
+                    <section id="game" class="section">
+                        <h2>잠깐!&nbsp;&nbsp;게임 한 판!</h2>
+                        <div id="game_box">
+                            <div id="game_img"><a href=""><img src="images/game.jpg" alt="초성퀴즈"></a></div>
+                            <p id="answer">답안 click</p>
+                            <div id="go"><a href="">퀴즈 GO ></a></div>
+                        </div>
+                    </section>
+                </div>
+
+                
+                <!--arrow up-->
+                <div class="aside">
+                    <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+                </div>
+        </main>
+
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

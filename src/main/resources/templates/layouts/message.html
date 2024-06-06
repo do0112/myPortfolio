@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<th:block th:if="${#strings.length(message.message) != 0}">
+	<script>
+		alert('[[${message.message}]]');
+	</script>
+</th:block>
+<th:block th:if="${#strings.length(message.uri) != 0}">
+	<script>
+		location.href = '[[${message.uri}]]';
+	</script>
+</th:block>
+</head>
+<body>
+
+</body>
+</html>

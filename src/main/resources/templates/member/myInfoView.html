@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 확인 및 수정</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/myInfoView.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+
+</head>
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <h2 th:text="|${loginMember}님, 어서오세요!|">어서오세요!</h2>
+                <div id="page">
+                    <div id="left_page">
+                        <p>개인정보 확인 및 수정</p>
+                        
+                    
+                            <table>
+                                <tr>
+                                    <td>아이디</td>
+                                    <td><input type="text" th:value="${loginMember}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>이름</td>
+                                    <td><input type="text" th:value="${member.userName}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>이메일</td>
+                                    <td><input type="text" th:value="${member.mail}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>휴대폰</td>
+                                    <td><input type="text" th:value="${member.phone}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>주소</td>
+                                    <td><input type="text" th:value="${member.address}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>MBTI</td>
+                                    <td><input type="text" th:value="${member.mbti}" readonly></td>
+                                </tr>
+                     
+                            </table>
+                            
+                            <div id="reset"><a th:href="@{/member/myInfoUpdate}">수정하기</a></div>
+                       
+                    </div>
+                    <div id="right_page">
+                        <ul>
+                            <ul>
+                            <li><a href="@{/member/myPage}">MY 1:1문의</a></li>
+                            <li id="current"><a th:href="@{/member/myInfo}">MY 개인정보</a></li>
+                            <li><a th:href="@{/member/pwReset}">비밀번호 변경</a></li>
+                            <li><a th:href="@{/member/memberDel}">회원탈퇴</a></li>
+                        </ul>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

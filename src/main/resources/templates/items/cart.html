@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/items/cart.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+    <script th:src="@{/src/cart.js}"></script>
+    
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <p>장바구니</p>
+                
+                <th:block th:if="${!#lists.isEmpty(cartList)}">
+                
+                <div id="item_del"><button type="button" th:onclick="|location.href='@{/item/cartAllDel}'|">장바구니 비우기</button></div>
+                
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>상품정보</th>
+                            <th>수량</th>
+                            <th>상품금액</th>
+                            <th>합계금액</th>
+                            <th>배송비</th>
+                            <th></th>
+                        </tr>
+       
+	                        <tr th:each="list, no : ${cartList}">
+	                        <form th:action="@{/item/cartUpdate}" method="post">
+	                            <td th:text="${no.count}"></td>
+	                            <td th:name="itemName" th:text="${list.itemName}"></td>
+	                            <td>
+	                            	<input type="hidden" name="no" th:value="${list.no}">
+	                                <input type="number" id="quantity" name="quantity" min={0} max={100} th:placeholder="${list.quantity}">
+	                                <button type="submit">수정</button>   
+	                            </td>
+	                            <td th:text="|${#numbers.formatInteger(list.price,3,'COMMA')}원|"></td>
+	                            <td th:text="|${#numbers.formatInteger(list.price*list.quantity,3,'COMMA')}원|"></td>
+	                            <td>무료배송(택배)</td>
+	                            <td><button type="button" th:onclick="|location.href='@{/item/cartDel(no=${list.no})}'|">삭제</button></td>   
+	                        </form>
+	                        </tr>
+                        
+                    </table>
+                   
+                    
+                    <div id="total_box">
+                        <span th:text="|총 ${cartList.size()}개의 상품금액 ${#numbers.formatInteger(totalPrice,3,'COMMA')}원|"></span>
+                        <span id="plus_box">+</span>
+                        <span>배송비 0원</span>
+                        <span id="equal_box">=</span>
+                        <span th:text="|합계 ${#numbers.formatInteger(totalPrice,3,'COMMA')}원|"></span>
+                    </div>
+
+                    <div id="last_btn">
+                        <a th:href="@{/}">쇼핑계속</a>
+                        <button>전체 상품 주문</button>
+                    </div>
+					</th:block>
+					
+					<th:block th:unless="${!#lists.isEmpty(cartList)}">
+					<table>
+                        <tr>
+                            <th></th>
+                            <th>상품정보</th>
+                            <th>수량</th>
+                            <th>상품금액</th>
+                            <th>합계금액</th>
+                            <th>배송비</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                        	<td colspan="7">장바구니가 비어있습니다. 상품을 추가해주세요!</td>
+                        </tr>
+                     </table>
+                     <div id="last_btn">
+                        <a th:href="@{/}">쇼핑가기</a>
+                    </div>
+					</th:block>
+			
+            </div>
+
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+        
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

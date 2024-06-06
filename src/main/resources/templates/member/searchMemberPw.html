@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/searchMemberPw.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+
+</head>
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <h2>비밀번호 찾기</h2>
+                <section class="section">
+                    <p id="member_img"><img th:src="@{/images/form/member_search.png}" alt="회원아이디찾기"></p>
+                    <p>비밀번호를 찾고자 하는 아이디를 입력해 주세요.</p>
+                </section>
+                <form th:action="@{/member/searchMemberPw}" th:with="uId=${uId}" method="post" autocomplete="off">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="uId" id="uId" placeholder="아이디" required>
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="choice_box">
+                        <button name="" id="id_box" th:onclick="|location.href='@{/member/searchMemberId}'|">아이디 찾기</button>
+                        <input type="submit" name="" id="next" value="다음">
+                    </div>
+                </form>
+            </div>
+        
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

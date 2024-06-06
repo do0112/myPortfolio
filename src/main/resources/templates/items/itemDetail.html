@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세보기</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/items/itemDetail.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+    <script th:src="@{/src/item.js}"></script>
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <p id="item_img"><img th:src="|@{/images/items/}${itemList.itemImg}|" alt=""></p>
+                
+                <form th:action="|@{/item/itemDetail/}${itemList.num}|" th:object="${cartList}"  method="post" >
+                	<input type="hidden" name="no" th:object="${cartList.no}">
+                	<input type="hidden" name="userNum" th:value="${userNum}">
+                	<input type="hidden" name="itemNum" th:value="${itemList.num}">
+                	<input type="hidden" name="userId" th:value="${loginMember}">
+                	<input type="hidden" name="price" th:value="${itemList.itemPrice}">
+                	<input type="hidden" name="itemName" th:value="${itemList.itemName}">
+                	<input type="hidden" name="memberCart" th:value="${userNum}">
+                	
+	                <div id="item_content">
+	                    <dl>
+	                        <dt th:text="${itemList.itemName}"></dt>
+	                        <dd th:text="|${#numbers.formatInteger(itemList.itemPrice,3,'COMMA')}원|"></dd>
+	                        <dd id="line"></dd>
+	                        <dd>
+	                            <span id="black1">무이자</span>
+	                            <span id="gray1">카드사별 무이자 혜택 안내</span>
+	                        </dd>
+	                        <dd>
+	                            <span id="black2">추가 혜택</span>
+	                            <span id="gray2">네이버페이 최대 3% 적립
+	                            <p id="gray3">페이코 포인트 결제시 1% 적립</p>
+	                        </dd>
+	                        <dd>
+	                            <span id="black3">수량</span>
+	                            <input type="button" id="minus" value="-">
+	                            <input id="quantity" name="quantity" type="text" value="1" readonly>
+	                            <input type="button" id="plus" value="+">
+	                        </dd>
+	                    </dl>
+	                    <div id="cartBtn"><input type="submit" value="장바구니"></div>
+	                </div>
+                </form>
+                
+            </div>
+
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+        
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

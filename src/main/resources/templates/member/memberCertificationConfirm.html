@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 찾기</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/memberCertificationConfirm.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main class="main">
+            <div class="inner">
+                <h2>본인인증</h2>
+                
+                <section class="section">
+                    <p id="member_img"><img th:src="@{/images/form/member_search.png}" alt="회원아이디찾기"></p>
+                    <p>수신된 인증문자를 입력해 주세요.</p>
+                </section>
+                	
+                <form th:action="@{/member/memberCertificationConfirm}" th:with="str=${str}" method="post" autocomplete="off">
+                	<div id="input_txt">
+                        <input type="text" name="str" id="str" placeholder="인증문자 입력 : 환영합니다!">
+                	    <input type="hidden" th:name="userId" th:value="${uId}">
+                    </div>
+	                <div id="choice_box">
+	                    <input type="submit" value="다음">
+	                </div>
+                </form>
+            </div>
+        
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

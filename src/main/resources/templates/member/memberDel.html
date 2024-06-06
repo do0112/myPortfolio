@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원탈퇴</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/member/memberDel.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+
+</head>
+<header th:replace="layouts/header::headerFragement"></header>
+
+
+<main class="main">
+            <div class="inner">
+                <h2>회원탈퇴 안내</h2>
+                <div id="page">
+                    <form th:action="@{/member/memberDel}" method="post">
+                        <div id="left_page">
+                            <p>
+                                오늘의 라면 탈퇴안내<br><br>회원님께서 회원 탈퇴를 원하신다니 저희 쇼핑몰의 서비스가 많이 부족하고 미흡했나 봅니다.<br>불편하셨던 점이나 불만사항을 알려주시면 적극 반영해서 고객님의 불편함을 해결해 드리도록 노력하겠습니다.<br><br>
+                                ■아울러 회원 탈퇴시의 아래 사항을 숙지하시기 바랍니다.<br>
+                                1. 회원 탈퇴 시 회원님의 정보는 상품 반품 및 A/S를 위해 전자상거래 등에서의 소비자 보호에 관한 법률에 의거한<br> 고객정보 보호정책에 따라 관리 됩니다.<br>
+                                2. 탈퇴 시 회원님께서 보유하셨던 마일리지는 삭제 됩니다.
+                            </p>
+                            
+                            <label for="member_pw">비밀번호</label>
+                            <input type="password" id="memberpw" name="memberPw">
+                            <input type="submit" name="delPw" id="delPw" value="탈퇴하기">
+                        </div>
+                    </form>
+                    <div id="right_page">
+                        <ul>
+                            <li><a th:href="@{/member/myPage}">MY 1:1문의</a></li>
+                            <li><a th:href="@{/member/myInfo}">MY 개인정보</a></li>
+                            <li><a th:href="@{/member/pwReset}">비밀번호 변경</a></li>
+                            <li id="current"><a th:href="@{/member/memberDel}">회원탈퇴</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+        
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>

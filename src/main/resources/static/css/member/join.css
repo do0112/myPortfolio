@@ -1,0 +1,473 @@
+:root{
+    /*colors*/
+    --color-white: #fff;
+    --color-orange: #f65d25;
+    --color-black: #050a13;
+    --color-background: #fcf6f4;
+    --color-font: #414141;
+    --color-btn: #f8d6cf;
+
+    /* width */
+    --max-width: 1600px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body,input{
+    font-family: 'NanumSquareNeo-Variable';
+    font-size: 18px;
+    color: var(--color-font);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--color-font);
+}
+img{
+    vertical-align: middle;
+    width: 100%;
+}
+
+/*common*/
+.inner{
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.section{
+    margin-top: 90px;
+    padding: 50px;
+    text-align: center;
+}
+h2{
+    font-size: 2.2rem;
+    margin: 1rem 0;
+}
+.description{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 0.5rem 0;
+}
+#wrap{
+    width: 100%;
+}
+
+/*header*/
+header{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    position: sticky;
+    top: 0; 
+    z-index: 10;   
+    border-bottom: 1.6px solid var(--color-orange);
+}
+.header--border{
+    border-bottom: 1.6px solid var(--color-orange);
+}
+
+/* top menu */
+header .inner{
+    position: relative;
+}
+header #top_menu{
+    display: flex;
+    justify-content: right;
+    padding: 20px 45px;
+}
+header #top_menu p{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 330px;
+	height: 30px;
+	border: 1px solid var(--color-orange);
+	border-radius: 25px;
+	margin-right: 15px;
+}
+header #top_menu p:hover{
+    border: 2px solid var(--color-orange);
+}
+header #top_menu p .material-symbols-outlined{
+	color: var(--color-orange);
+}
+header #top_menu input{
+	width: 290px;
+	border: none;
+	outline: none;
+}
+header #top_menu input::placeholder{
+	color: #999;
+}
+header #top_menu button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+header ul{
+    display: flex;
+}
+#top_menu ul li{
+    padding: 7px;
+}
+#top_menu ul li a:hover{
+    font-weight: bold;
+}
+h1{
+    scale: 1.2;
+    position: absolute;
+    left: 10px;
+    top: 40%;
+}
+
+/* main menu */
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20%;
+}
+nav ul{
+    vertical-align: middle; 
+}
+nav ul li{
+    margin-right: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px 3px 25px 3px;
+}
+nav ul .all span{
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 37px;
+}
+/*sub menu*/
+.all #sub_menu{
+    background-color: var(--color-white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    padding: 10px 0 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: none;
+    z-index: 9;
+}
+#sub_menu dl{
+    float: left;
+}
+#sub_menu dl:first-of-type{
+    margin-left: 30%;
+}
+#sub_menu .sub{
+    margin: 0 50px;
+}
+#sub_menu .sub dt{
+    font-size: 20px;
+    color: var(--color-font);
+    font-weight: normal;
+    margin: 15px 0;
+}
+#sub_menu .sub dd{
+    margin-top: 15px;
+}
+#sub_menu .sub dd a{
+    font-weight: bold;
+    padding-bottom: 2px;
+    font-size: 18px;
+}
+#sub_menu .sub dd a:hover{
+    color: var(--color-orange);
+    border-bottom: 1.5px solid var(--color-orange);
+}
+nav #menu_icon{
+    margin-left: 10%;
+}
+nav #menu_icon a{
+    display: inline-block;
+    margin-right: 15px;
+}
+nav #menu_icon a span{
+    font-size: 30px;
+}
+
+
+
+/* join */
+h2{
+    font-size: 1.8rem;
+    margin: 100px 0 10px 0;
+    text-align: center;
+}
+.main .inner form{
+    width: 800px;
+    margin: 40px auto;
+}
+#terms,#privacy{
+    width: 700px;
+    margin: 0 auto;
+}
+dt{
+    text-align: left;
+    margin: 30px 0 10px 0;
+}
+.square{
+    width: 18px;
+    height: 18px;
+    border: 1px solid #666;
+	vertical-align: middle;
+	display: inline-block;
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+    cursor: pointer;
+}
+.square:hover{
+    background-image: url('../../images/form/check_gray.png');
+}
+#terms_check:checked+ .square{
+	background-color: #666;
+	border-color: #666;
+	background-image: url('../../images/form/check_white.png');
+}
+#privacy_check:checked+ .square{
+    background-color: #666;
+	border-color: #666;
+	background-image: url('../../images/form/check_white.png');
+}
+#terms_check,#privacy_check{
+	display: none;
+}
+.font_orange{
+    color: var(--color-orange);
+}
+textarea{
+    width: 700px;
+    height: 130px;
+    resize: none;
+    line-height: 18px;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    border-left-color: #ccc;
+    border-right-color: #ccc;
+}
+#profile{
+    margin: 60px 0 30px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-black);
+    padding-bottom: 10px;
+}
+#profile .font_orange{
+    float: right;
+    font-size: 14px;
+    text-align: center;
+}
+.necessary{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-orange);
+    margin-right: 5px;
+}
+table{
+	width: 800px;
+	margin: 0 auto;
+	border-spacing: 0;
+    font-size: 18px;
+}
+table th{
+    text-align: left;
+    border-bottom: 1px solid #999;
+    padding: 30px 0 30px 20px;
+}
+table th label{
+    font-weight: normal;
+}
+table td{
+    border-bottom: 1px solid #999;
+}
+table input[type="text"]{
+    width: 320px;
+    height: 35px;
+    border: none;
+    border: 1px solid #ccc;
+    outline-color: #999;
+    padding: 5px;
+}
+table input[type="text"]::placeholder{
+    font-size: 16px;
+}
+.smail{
+    font-size: 14px;
+    margin-top: 5px;
+}
+#id_check{
+    font-size: 14px;
+    padding: 7px 0;
+    color: red;
+    display: none;
+}
+#id_pass{
+    font-size: 14px;
+    padding: 7px 0;
+    color: green;
+    display: none;
+}
+#id_error{
+    font-size: 14px;
+    padding: 7px 0;
+    color: red;
+    display: none;
+}
+table .material-symbols-outlined{
+    font-size: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: #ccc;
+}
+table #id_heart.green{
+	color: green;
+}
+table #pw_heart.green{
+	color: green;
+}
+table #pw_check_heart.green{
+	color: green;
+}
+table #phone_heart.green{
+	color: green;
+}
+table #mail_heart.green{
+	color: green;
+}
+table input[type="password"]{
+    width: 320px;
+    height: 35px;
+    border: none;
+    border: 1px solid #ccc;
+    outline-color: #999;
+    padding: 5px;
+}
+table input[type="tel"]{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border: 1px solid #ccc;
+    outline-color: #999;
+    padding: 5px;
+}
+table input[type="tel"]::placeholder{
+    font-size: 16px;
+}
+table #duplicate_check{
+    width: 80px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}
+table #mail1{
+    width: 250px;
+    height: 35px;
+}
+table #mail2{
+    width: 120px;
+    height: 35px;
+    font-size: 16px
+}
+#birth_check,#phone_check,#email_check,#pw_ch{
+    font-size: 14px;
+    padding-top: 7px;
+    color: red;
+    display: none;
+}
+#btn{
+    text-align: center;
+    margin: 50px 0;
+}
+#btn input{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+#btn input[type="button"]{
+    margin-right: 10px;
+}
+#btn input[type="submit"]{
+	background-color: var(--color-btn);
+    border: 1px solid var(--color-font);
+}
+
+
+/*arrow up*/
+.aside{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+    
+}
+.aside #quick{
+    display: block;
+    font-size: 2.3rem;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/*footer*/
+footer .inner{
+	width: 100%;
+	padding: 40px 0;
+	background-color: #f9f9f9;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-around;
+}
+footer h3 img{
+	width: 150px;
+}
+footer #info{
+	display: flex;
+}
+#info li{
+	margin-right: 30px;
+}
+footer a{
+	color: #333;
+	border-bottom: 1px solid #333;
+	padding-bottom: 1px;
+}
+footer a:hover{
+	border-bottom: none;
+}
+footer p{
+	margin-top: 30px;
+	line-height: 20px;
+}
+footer #icon{
+	display: flex;
+}
+#icon li{
+	padding: 10px;
+}
+#icon li a{
+	font-size: 24px;
+	border-bottom: none;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="headerFragement">
+
+<body>
+    <div id="wrap">
+        <!--header-->
+        <header class="header">
+            <div class="inner">
+            	
+				
+                <!-- top menu -->
+                <div id="top_menu">
+                	
+                	<form th:action="@{/item/itemList/search}" method="get">
+                	<p>
+                		<input type="search" th:name="search" id="search" placeholder="오늘은 어떤 라면이 끌리나요?🍜">
+	                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+	                </p>
+	               	</form>
+	                <ul>
+	                   	<li th:if="${#strings.isEmpty(loginMember)}"><a th:href="@{/member/login}">로그인</a></li>
+	                    <li th:if="${#strings.isEmpty(loginMember)}"><a th:href="@{/member/join}">회원가입</a></li>
+	                </ul>
+	                <ul>
+	                    <li th:if="${not #strings.isEmpty(loginMember)}" th:text="|${loginMember}님|"></li>
+	                    <li th:if="${not #strings.isEmpty(loginMember)}"><a th:href="@{/member/logout}">로그아웃</a></li>
+	                </ul>
+	                
+                </div>
+                
+               
+            <!-- main menu -->
+                <nav>
+                    <h1><a th:href="@{/}"><img th:src="@{/images/logo.png}" alt="상단로고"></a></h1>
+                    
+                        <ul>
+                            <li class="all">
+                                <a href=""><span class="material-symbols-outlined">menu</span>전체</a>
+                                <div id="sub_menu">
+                                    <dl class="sub">
+                                        <dt>국내 브랜드</dt>
+                                        <dd><a th:href="@{/item/itemList/농심}">농심</a></dd>
+                                        <dd><a th:href="@{/item/itemList/삼양}">삼양</a></dd>
+                                        <dd><a th:href="@{/item/itemList/팔도}">팔도</a></dd>
+                                    </dl>
+                                    <dl class="sub">
+                                        <dt>종류</dt>
+                                        <dd><a th:href="@{/item/itemList/bag}">봉지라면</a></dd>
+                                        <dd><a th:href="@{/item/itemList/cup}">컵라면</a></dd>
+                                    </dl>
+                                    <dl class="sub">
+                                        <dt>입맛</dt>
+                                        <dd><a th:href="@{/item/itemList/spicy}">매운맛</a></dd>
+                                        <dd><a th:href="@{/item/itemList/mild}">순한맛</a></dd>
+                                    </dl>
+                                    <dl class="sub">
+                                        <dt>해외</dt>
+                                        <dd><a th:href="@{/item/itemList/japan}">일본</a></dd>
+                                        <dd><a th:href="@{/item/itemList/vietnam}">베트남</a></dd>
+                                        <dd><a th:href="@{/item/itemList/china}">중국</a></dd>
+                                        <dd><a th:href="@{/item/itemList/thailand}">태국</a></dd>
+                                    </dl>
+                                </div>
+                            </li>
+                            <li><a th:href="@{/item/itemList/new}">신제품</a></li>
+                            <li><a th:href="@{/item/itemList/best}">베스트</a></li>
+                            <li><a href="">라면을 맞혀라!</a></li>
+                            <li><a href="">고객후기</a></li>
+                            <li><a th:href="@{/notice}">공지사항</a></li>
+                        </ul>
+                    
+                    <div id="menu_icon">
+                        <a th:href="@{/member/myPage}"><span class="material-symbols-outlined">face</span></a>
+                        <a th:href="@{/item/cart}"><span class="material-symbols-outlined">shopping_bag</span></a>
+                        <a th:href="@{/faq}"><span class="material-symbols-outlined">support_agent</span></a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+</th:block>
+</html>

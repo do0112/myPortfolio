@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체보기</title>
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!--font-->
+    <!--favicon-->
+    <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/items/itemList.css}">
+    <!--JavaScript-->
+    <script th:src="@{/src/header.js}" defer></script>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/src/projects.js}"></script>
+</head>
+
+<header th:replace="layouts/header::headerFragement"></header>
+
+<main>
+            <div id="bgc"></div>
+            <div class="inner">
+                <h2 th:text="${title}"></h2>
+                <ul id="item_box">
+                    <li th:each="items : ${list}">
+                        <dl>
+                            <dt><a th:href="|@{/item/itemDetail/}${items.num}|"><img th:src="|@{/images/items/}${items.itemImg}|" alt=""></a></dt>
+                            <dd><a th:href="|@{/item/itemDetail/}${items.num}|" th:text="${items.itemName}"></a></dd>
+                            <dd th:text="|${#numbers.formatInteger(items.itemPrice,3,'COMMA')}원|"></dd>
+                        </dl>
+                    </li>
+                </ul>
+                
+                <div id="page_navigation">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" th:href="@{${#httpServletRequest.requestURI}(page=0)}" aria-label="First">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" th:href="@{${#httpServletRequest.requestURI}(page=${(page.number-1) < 0} ? 0 : ${page.number-1})}" aria-label="Previous">
+                          <span aria-hidden="true">&lt;</span>
+                        </a>
+                      </li>
+                      <li th:each="no : ${#numbers.sequence(0,page.totalPages -1)}" th:class="${page.number == no} ? 'page-item active' : 'page-item'">
+                      	<a class="page-link" th:href="@{${#httpServletRequest.requestURI}(page=${no})}" th:text="${no +1}"></a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" th:href="@{${#httpServletRequest.requestURI}(page=${(page.number+1) > (page.totalPages-1)} ? ${page.totalPages-1} : ${page.number+1})}" aria-label="Next">
+                          <span aria-hidden="true">&gt;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" th:href="@{${#httpServletRequest.requestURI}(page=${page.totalPages -1})}" aria-label="Last">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+            </div> 
+
+ <!--arrow up-->
+            <div class="aside">
+                <span id="quick" class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </main>
+        
+<footer th:replace="layouts/footer::footerFragement"></footer>
+</html>
